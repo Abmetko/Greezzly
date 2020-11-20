@@ -7,6 +7,10 @@
     <groupId>org.example</groupId>
     <artifactId>Greezly</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <arg1>hello</arg1>
+        <arg2>world</arg2>
+    </properties>
 
     <build>
         <plugins>
@@ -14,15 +18,16 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
-                <executions>
-                    <execution>
-                        <phase>prepare-package</phase>
-                    </execution>
-                </executions>
                 <configuration>
-                    <mainClass>com.gz.Test</mainClass>
-                    <arguments>args0</arguments>
-                    <arguments>args1</arguments>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>-Djava.library.path=${project.build.directory}/lib</argument>
+                        <argument>-classpath</argument>
+                        <classpath />
+                        <argument>com.Test</argument>
+                        <argument>${arg1}</argument>
+                        <argument>${arg2}</argument>
+                    </arguments>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,4 +1,4 @@
-package com.gz;
+package com;
 
 public class Test {
 
@@ -6,3 +6,4 @@ public class Test {
         System.out.println(args[0] + ", " + args[1]);
     }
 }
+/* mvn clean compile exec:exec -Darg1=Hello -Darg2=world! */
